@@ -1,83 +1,93 @@
+// src/components/sections/Showcase/Showcase.tsx
+
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./Showcase.css";
+import type { HomepageContent } from "../../../contents/_base/homepage";
+import { useContent } from "../../../hooks/useContent";
 
-const Showcase = () => {
+gsap.registerPlugin(ScrollTrigger);
 
-    const sectionRef = useRef(null); 
-    const project1Ref = useRef(null);
-    const project2Ref = useRef(null);
-    const project3Ref = useRef(null);
-    
-    useGSAP(() => {
+export const Showcase: React.FC = () => {
 
-        const projects = [project1Ref.current, project2Ref.current, project3Ref.current];
+  const {main, others} = useContent<HomepageContent>().showcase; 
 
-        projects.forEach((project, index) => {
-            gsap.fromTo(
-                project,
-                {
-                    y: 50, opacity: 0
-                },
-                {
-                    y: 0, 
-                    opacity: 1, 
-                    duration: 1, 
-                    ease: 'power2.inOut', 
-                    delay: (index+1) * 0.3, 
-                    scrollTrigger: {
-                        trigger: project, 
-                        start: 'top bottom-=100'
-                    }
-                }
-            )
-        });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const projectRefs = useRef<HTMLDivElement[]>([]);
 
-        gsap.fromTo(sectionRef.current, 
-        {opacity: 0}, 
-        {opacity: 1, duration: 1.5, ease: 'power2.inOut'})
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      // Animate each project card on scroll
+      projectRefs.current.forEach((project, index) => {
+        gsap.fromTo(
+          project,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.inOut",
+            delay: index * 0.3,
+            scrollTrigger: {
+              trigger: project,
+              start: "top bottom-=100",
+            },
+          }
+        );
+      });
 
-    },[]);
+      // Fade in section
+      gsap.fromTo(
+        sectionRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1.5, ease: "power2.inOut" }
+      );
+    }, sectionRef);
 
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div id="work" className="app-showcase"ref={sectionRef}>
-        <div className="w-full">
-            <div className="showcaselayout">
-                {/* LEFT */}
-                <div className="first-project-wrapper" ref={project1Ref}>
-                    <div className="image-wrapper">
-                        <img src="/images/project1.png" alt="Ryde" />
-                    </div>
-                    <div className="text-content">
-                        <h2>On-Demand Rides Made Simple with a Powerful, User-Friendly App called Ryde</h2>
-                        <p className="text-white-50 md:text-xl">
-                            An app built with React Native, Redux, Node.js, Express, and MongoDB that connects riders with drivers for convenient transportation.
-                        </p>
-                    </div>
-                </div>
-
-                {/* RIGHT */}
-                <div className="project-list-wrapper overflow-hidden">
-                    <div className="project" ref={project2Ref}>
-                        <div className="image-wrapper bg-[#ffefdb]">
-                            <img src="/images/project2.png" alt="Library Management" />
-                        </div>
-                        <h2>Library Management Platform</h2>
-                    </div>
-
-                    <div className="project" ref={project3Ref}>
-                        <div className="image-wrapper bg-[#ff7edb]">
-                            <img src="/images/project3.png" alt="YC Directory" />
-                        </div>
-                        <h2>YC Directory - A Startup Showcase App</h2>
-                    </div>
-
-                </div>
-            </div>
+    <section id="work" className="showcase-section" ref={sectionRef}>
+      <div className="showcase-container">
+        {/* LEFT PROJECT */}
+        <div
+          className="project-main"
+          ref={(el) => {
+                if (el) projectRefs.current[0] = el;
+                }}
+        >
+          <div className="image-wrapper">
+            <img src={main.image} alt={main.title} />
+          </div>
+          <div className="text-content">
+            <h2>{main.title}</h2>
+            <p className="text-white-50 md:text-xl">{main.description}</p>
+          </div>
         </div>
-    </div>
-  )
-}
+
+        {/* RIGHT PROJECTS */}
+        <div className="project-list">
+          {others.map((proj, i) => (
+            <div
+              key={proj.title}
+              className="project-card"
+              ref={(el) => {
+                if (el) projectRefs.current[i + 1] = el;
+                }}
+            >
+              <div className="image-wrapper" style={{ backgroundColor: proj.bg }}>
+                <img src={proj.image} alt={proj.title} />
+              </div>
+              <h2>{proj.title}</h2>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Showcase;

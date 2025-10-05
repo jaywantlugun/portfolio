@@ -1,15 +1,14 @@
 import CountUp from "react-countup";
+import "./AnimatedCounter.css";
+import type { HomepageContent } from "../../../contents/_base/homepage";
+import { useContent } from "../../../hooks/useContent";
 
-const counterItems = [
-    {value: 10, suffix: "+", label: "Years of Experience"},
-    {value: 100, suffix: "+", label: "Satisfied Clients"},
-    {value: 108, suffix: "+", label: "Completed Projects"},
-    {value: 90, suffix: "%", label: "Client Retention Rate"},
-]
+export const AnimatedCounter = () => {
 
-const AnimatedCounter = () => {
+    const { counterItems } = useContent<HomepageContent>().animatedCounter;
+
     return (
-        <div id="counter" className="padding-x-lg xl:mt-0 mt-32">
+        <section id="counter" className="padding-x-lg xl:mt-0 mt-32">
             <div className="mx-auto grid-4-cols">
                 {
                     counterItems.map((item) => (
@@ -22,7 +21,7 @@ const AnimatedCounter = () => {
                     ))
                 }
             </div>
-        </div>
+        </section>
     )
 }
 

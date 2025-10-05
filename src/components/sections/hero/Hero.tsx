@@ -1,74 +1,8 @@
-// src/components/sections/Hero/Hero.tsx
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import Button from "../../common/Button";
 import "./Hero.css";
 import type { HomepageContent } from "../../../contents/_base/homepage";
 import { useContent } from "../../../hooks/useContent";
-
-// Subcomponent: WordSlider
-function WordSlider({ words }: { words: { text: string; imgPath: string }[] }) {
-  return (
-    <span className="slide">
-      <span className="wrapper">
-        {words.map(({ text, imgPath }) => (
-          <span
-            key={text}
-            className="flex items-center md:gap-3 gap-1 pb-2"
-            aria-label={text}
-          >
-            <img
-              src={imgPath}
-              alt={text}
-              className="xl:size-12 md:size-10 size-7 md:p2 p-1 rounded-full bg-white-50"
-            />
-            <span>{text}</span>
-          </span>
-        ))}
-      </span>
-    </span>
-  );
-}
-
-// Subcomponent: HeroText
-function HeroText({
-  heading1,
-  heading2,
-  heading3,
-  words,
-}: {
-  heading1: string;
-  heading2: string;
-  heading3: string;
-  words: { text: string; imgPath: string }[];
-}) {
-  const textRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const elements = textRef.current?.querySelectorAll("h1");
-      if (elements)
-        gsap.fromTo(
-          elements,
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
-        );
-    },
-    { scope: textRef }
-  );
-
-  return (
-    <div ref={textRef} className="hero-text">
-      <h1>
-        {heading1}
-        <WordSlider words={words} />
-      </h1>
-      <h1>{heading2}</h1>
-      <h1>{heading3}</h1>
-    </div>
-  );
-}
+import HeroText from "./HeroText";
 
 // Main Hero Section
 export function Hero() {
