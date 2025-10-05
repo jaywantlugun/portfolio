@@ -1,4 +1,4 @@
-import Hero from "../../components/sections/hero/Hero";
+import Hero from "../../components/sections/hero";
 import Showcase from "../../components/sections/showcase/Showcase";
 
 export function Home() {

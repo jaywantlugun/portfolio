@@ -22,6 +22,10 @@
     @apply text-white text-xl md:text-2xl font-semibold transition-transform duration-300 hover:scale-105;
   }
 
+  .navbar nav.desktop {
+    @apply hidden md:flex items-center;
+  }
+
   .navbar nav.desktop ul {
     @apply flex space-x-8;
   }
