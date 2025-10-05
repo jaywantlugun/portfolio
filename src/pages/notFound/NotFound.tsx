@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useTheme } from '../../../hooks/useTheme'; 
-import { useContent } from '../../../hooks/useContent';
-import type { NotFoundpageContent } from '../../../contents/_base/notfoundpage';
+import { useTheme } from '../../hooks/useTheme'; 
+import { useContent } from '../../hooks/useContent';
+import type { NotFoundpageContent } from '../../contents/_base/notfoundpage';
 
 export const NotFound = () => {
   const { colors } = useTheme();

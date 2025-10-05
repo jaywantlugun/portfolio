@@ -4,15 +4,17 @@ import { routes } from "./config";
 import { ContentProvider } from "../hooks/useContent";
 import { useLanguage } from "../hooks/useLanguage";
 import { resolveContent } from "../contents";
-import Header from "../components/layout/Header";
-import { LoadingPage } from "../components/ui/Spinner";
+import { LoadingPage } from "../components/common/Spinner";
+import NavBar from "../components/layout/navbar";
 
 export default function AppRoutes() {
   const { language } = useLanguage();
 
   return (
     <BrowserRouter>
-    <Header />
+    <ContentLoader language={language} contentKey={"homepage"}>
+      <NavBar />
+    </ContentLoader>
       <Suspense fallback={<LoadingPage/>}>
         <Routes>
           {routes.map(({ path, element: Element, contentKey }) => {

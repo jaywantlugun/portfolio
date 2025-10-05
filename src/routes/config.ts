@@ -10,17 +10,12 @@ interface RouteConfig {
 export const routes: RouteConfig[] = [
   {
     path: "/",
-    element: lazy(() => import("../components/pages/home")),
+    element: lazy(() => import("../pages/home")),
     contentKey: "homepage",
   },
   {
-    path: "/about",
-    element: lazy(() => import("../components/pages/about")),
-    contentKey: "aboutpage",
-  },
-  {
     path: "/*",
-    element: lazy(() => import("../components/pages/notFound")),
+    element: lazy(() => import("../pages/notFound")),
     contentKey: "notfoundpage",
   }
 ];

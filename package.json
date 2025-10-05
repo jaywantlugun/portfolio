@@ -11,9 +11,12 @@
     "postbuild": "node scripts/generate-seo-files.js"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@reduxjs/toolkit": "^2.9.0",
     "axios": "^1.12.2",
+    "gsap": "^3.13.0",
     "react": "^19.1.1",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.1"
