@@ -21,7 +21,7 @@ export function Hero() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("visible");
+          requestAnimationFrame(() => el.classList.add("visible"));
           observer.disconnect();
         }
       },
@@ -36,7 +36,7 @@ export function Hero() {
     <section id="hero" className="relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.png" alt="Background" className="object-cover" />
+        <img src="/images/bg.png" alt="Background" className="object-cover" fetchPriority="high" />
       </div>
 
       <div className="hero-layout">
