@@ -5,11 +5,11 @@ import Showcase from "../../components/sections/showcase";
 export function Home() {
 
   return (
-    <>
+    <main>
     <Hero/>
     <AnimatedCounter />
     <Showcase/>
-    </>
+    </main>
   );
 }
 

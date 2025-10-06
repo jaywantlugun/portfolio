@@ -8,6 +8,7 @@ interface ButtonProps {
 const Button = ({text, className, id}:ButtonProps) => {
   return (
     <a 
+    role="button"
     onClick={(e)=>{
       e.preventDefault();
       const target = document.getElementById('counter');
