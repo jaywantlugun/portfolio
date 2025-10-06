@@ -31,7 +31,9 @@ export const createDynamicStore = () => {
   extendedStore.injectReducer = (key: string, asyncReducer: Reducer) => {
     if (!extendedStore.asyncReducers[key]) {
       extendedStore.asyncReducers[key] = asyncReducer;
-      extendedStore.replaceReducer(createRootReducer(extendedStore.asyncReducers));
+      extendedStore.replaceReducer(
+        createRootReducer(extendedStore.asyncReducers),
+      );
     }
   };
 

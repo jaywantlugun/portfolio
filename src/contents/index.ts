@@ -13,7 +13,7 @@ const langModules = import.meta.glob<Module<any>>("./*/**/*.ts");
 
 export async function resolveContent<K extends keyof AppContent>(
   pageKey: K,
-  language: Language
+  language: Language,
 ): Promise<AppContent[K]> {
   const cacheKey = `${language}-${String(pageKey)}`;
 
@@ -37,7 +37,7 @@ export async function resolveContent<K extends keyof AppContent>(
 async function fetchFreshContent<K extends keyof AppContent>(
   pageKey: K,
   language: Language,
-  cacheKey: string
+  cacheKey: string,
 ): Promise<AppContent[K]> {
   // dynamic import for base content
   const baseImporter = baseModules[`./_base/${pageKey}.ts`];

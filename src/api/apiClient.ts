@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Default base URL (can be overridden per request)
 const apiClient = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com", 
+  baseURL: "https://jsonplaceholder.typicode.com",
   headers: {
     "Content-Type": "application/json",
   },
@@ -18,7 +18,7 @@ apiClient.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // Response Interceptor (handle errors globally)
@@ -30,7 +30,7 @@ apiClient.interceptors.response.use(
       // redirect logic here if needed
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default apiClient;

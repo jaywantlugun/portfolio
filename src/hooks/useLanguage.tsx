@@ -8,8 +8,12 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = React.useState<Language>(Language.ENGLISH);
+export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [language, setLanguageState] = React.useState<Language>(
+    Language.ENGLISH,
+  );
 
   useEffect(() => {
     const lang = localStorage.getItem("language");
@@ -25,11 +29,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const value = useMemo(() => ({ language, setLanguage }), [language]);
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
 };
 
 export const useLanguage = () => {
   const context = React.useContext(LanguageContext);
-  if (!context) throw new Error("useLanguage must be used inside LanguageProvider");
+  if (!context)
+    throw new Error("useLanguage must be used inside LanguageProvider");
   return context;
 };

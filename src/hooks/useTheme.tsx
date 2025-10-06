@@ -1,4 +1,10 @@
-import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 export interface ColorScheme {
   bg: string;
@@ -22,7 +28,7 @@ export interface ColorScheme {
     muted: [string, string];
     empty: [string, string];
     lost: [string, string];
-    accent: [string, string]; 
+    accent: [string, string];
   };
   backgrounds: {
     input: string;
@@ -52,7 +58,7 @@ const lightColors: ColorScheme = {
     danger: ["#ef4444", "#dc2626"],
     muted: ["#9ca3af", "#6b7280"],
     empty: ["#f3f4f6", "#e5e7eb"],
-    lost: ["#a855f7", "#ec4899"], 
+    lost: ["#a855f7", "#ec4899"],
     accent: ["#8b5cf6", "#7c3aed"],
   },
   backgrounds: {
@@ -73,7 +79,7 @@ const darkColors: ColorScheme = {
   warning: "#fbbf24",
   danger: "#f87171",
   shadow: "#000000",
-  accent: "#a78bfa", 
+  accent: "#a78bfa",
   gradients: {
     background: ["#0f172a", "#1e293b"],
     surface: ["#1e293b", "#334155"],
@@ -84,7 +90,7 @@ const darkColors: ColorScheme = {
     muted: ["#374151", "#4b5563"],
     empty: ["#374151", "#4b5563"],
     lost: ["#a855f7", "#ec4899"],
-    accent: ["#a78bfa", "#7c3aed"], 
+    accent: ["#a78bfa", "#7c3aed"],
   },
   backgrounds: {
     input: "#1e293b",
@@ -92,7 +98,6 @@ const darkColors: ColorScheme = {
   },
   statusBarStyle: "light-content" as const,
 };
-
 
 interface ThemeContextType {
   isDarkMode: boolean;
@@ -132,4 +137,3 @@ export const useTheme = () => {
   }
   return context;
 };
-
