@@ -174,7 +174,8 @@ export const LoadingPage = () => {
     <div
       className="fixed inset-0 flex items-center justify-center z-50"
       style={{
-        background: `linear-gradient(135deg, ${colors.gradients.background[0]}, ${colors.gradients.background[1]})`,
+        // background: `linear-gradient(135deg, ${colors.gradients.background[0]}, ${colors.gradients.background[1]})`,
+        backgroundColor: "black",
       }}
     >
       <div className="text-center">
