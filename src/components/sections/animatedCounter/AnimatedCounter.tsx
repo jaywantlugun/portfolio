@@ -5,13 +5,13 @@ import { useContent } from "../../../hooks/useContent";
 
 export const AnimatedCounter = () => {
 
-    const { counterItems } = useContent<HomepageContent>().animatedCounter;
+    const { animatedCounter } = useContent<HomepageContent>();
 
     return (
         <section id="counter" className="padding-x-lg xl:mt-0 mt-32">
             <div className="mx-auto grid-4-cols">
                 {
-                    counterItems.map((item) => (
+                    animatedCounter?.counterItems.map((item) => (
                         <div key={item.label} className="bg-zinc-900 rounded-lg p-10 flex flex-col justify-center">
                             <div className="counter-number text-white text-5xl font-bold mb-2">
                                 <CountUp suffix={item.suffix} end={item.value} />

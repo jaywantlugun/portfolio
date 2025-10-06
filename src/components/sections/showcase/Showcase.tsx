@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const Showcase: React.FC = () => {
 
-  const {main, others} = useContent<HomepageContent>().showcase; 
+  const {showcase} = useContent<HomepageContent>(); 
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const projectRefs = useRef<HTMLDivElement[]>([]);
@@ -58,17 +58,17 @@ export const Showcase: React.FC = () => {
                 }}
         >
           <div className="image-wrapper">
-            <img src={main.image} alt={main.title} />
+            <img src={showcase?.main.image} alt={showcase?.main.title} />
           </div>
           <div className="text-content">
-            <h2>{main.title}</h2>
-            <p className="text-white-50 md:text-xl">{main.description}</p>
+            <h2>{showcase?.main.title}</h2>
+            <p className="text-white-50 md:text-xl">{showcase?.main.description}</p>
           </div>
         </div>
 
         {/* RIGHT PROJECTS */}
         <div className="project-list">
-          {others.map((proj, i) => (
+          {showcase?.others.map((proj, i) => (
             <div
               key={proj.title}
               className="project-card"

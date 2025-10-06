@@ -9,8 +9,7 @@ const Spline = lazy(() => import("@splinetool/react-spline"));
 
 // Main Hero Section
 export function Hero() {
-  const { words, introText, buttonText, heading1, heading2, heading3 } =
-    useContent<HomepageContent>().hero;
+  const { hero} = useContent<HomepageContent>();
 
     const modelRef = useRef<HTMLDivElement>(null);
 
@@ -45,19 +44,19 @@ export function Hero() {
         <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
           <div className="flex flex-col gap-7">
             <HeroText
-              heading1={heading1}
-              heading2={heading2}
-              heading3={heading3}
-              words={words}
+              heading1={hero?.heading1}
+              heading2={hero?.heading2}
+              heading3={hero?.heading3}
+              words={hero?.words}
             />
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              {introText}
+              {hero?.introText}
             </p>
 
             <Button
               id="hero-button"
-              text={buttonText}
+              text={hero?.buttonText}
               className="md:w-80 md:h-16 w-60 h-12"
             />
           </div>

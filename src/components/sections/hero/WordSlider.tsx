@@ -2,7 +2,7 @@ function WordSlider({ words }: { words: { text: string; imgPath: string }[] }) {
   return (
     <span className="slide">
       <span className="wrapper">
-        {words.map(({ text, imgPath }) => (
+        {words?.map(({ text, imgPath }) => (
           <span
             key={text}
             className="flex items-center md:gap-3 gap-1 pb-2"

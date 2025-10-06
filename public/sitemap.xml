@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://localhost:4173</loc>
-  <lastmod>2025-10-05T21:33:58.928Z</lastmod>
+  <lastmod>2025-10-06T13:41:34.766Z</lastmod>
   <priority>1.0</priority>
 </url>
 <url>
   <loc>http://localhost:4173/*</loc>
-  <lastmod>2025-10-05T21:33:58.928Z</lastmod>
+  <lastmod>2025-10-06T13:41:34.767Z</lastmod>
   <priority>0.8</priority>
 </url>
 </urlset>
