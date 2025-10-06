@@ -10,7 +10,6 @@
   --color-blue-100: #2d2d38;
 }
 
-
 @layer components {
   .showcase-section {
     @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;

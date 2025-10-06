@@ -23,10 +23,10 @@ function HeroText({
         gsap.fromTo(
           elements,
           { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
+          { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" },
         );
     },
-    { scope: textRef }
+    { scope: textRef },
   );
 
   return (

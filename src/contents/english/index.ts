@@ -4,9 +4,9 @@ import homepage from "./homepage";
 import notfoundpage from "./notfoundpage";
 
 const content: AppContent = {
-    ..._base,
-    homepage: { ..._base.homepage, ...homepage },
-    notfoundpage: { ..._base.notfoundpage, ...notfoundpage }
-}
+  ..._base,
+  homepage: { ..._base.homepage, ...homepage },
+  notfoundpage: { ..._base.notfoundpage, ...notfoundpage },
+};
 
 export default content;

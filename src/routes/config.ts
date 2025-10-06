@@ -17,5 +17,5 @@ export const routes: RouteConfig[] = [
     path: "/*",
     element: lazy(() => import("../pages/notFound")),
     contentKey: "notfoundpage",
-  }
+  },
 ];

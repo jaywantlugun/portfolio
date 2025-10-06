@@ -3,12 +3,11 @@ import Hero from "../../components/sections/hero";
 import Showcase from "../../components/sections/showcase";
 
 export function Home() {
-
   return (
     <main>
-    <Hero/>
-    <AnimatedCounter />
-    <Showcase/>
+      <Hero />
+      <AnimatedCounter />
+      <Showcase />
     </main>
   );
 }

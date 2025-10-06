@@ -5,7 +5,9 @@ export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
   const toggleLanguage = () => {
-    setLanguage(language === Language.ENGLISH ? Language.HINDI : Language.ENGLISH);
+    setLanguage(
+      language === Language.ENGLISH ? Language.HINDI : Language.ENGLISH,
+    );
   };
 
   return (

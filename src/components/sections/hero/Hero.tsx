@@ -9,9 +9,9 @@ const Spline = lazy(() => import("@splinetool/react-spline"));
 
 // Main Hero Section
 export function Hero() {
-  const { hero} = useContent<HomepageContent>();
+  const { hero } = useContent<HomepageContent>();
 
-    const modelRef = useRef<HTMLDivElement>(null);
+  const modelRef = useRef<HTMLDivElement>(null);
 
   // Fade in when visible (Intersection Observer)
   useEffect(() => {
@@ -25,7 +25,7 @@ export function Hero() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(el);
@@ -36,7 +36,12 @@ export function Hero() {
     <section id="hero" className="relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.png" alt="Background" className="object-cover" fetchPriority="high" />
+        <img
+          src="/images/bg.png"
+          alt="Background"
+          className="object-cover"
+          fetchPriority="high"
+        />
       </div>
 
       <div className="hero-layout">

@@ -1,89 +1,92 @@
 import type { Content } from "../../types/Content";
 
 export interface NavBarContent extends Content {
-    navLinks: { name: string; link: string }[];
-    logoText: string;
-    contactButtonText: string;
+  navLinks: { name: string; link: string }[];
+  logoText: string;
+  contactButtonText: string;
 }
 
 export interface HeroContent extends Content {
-    introText: string;
-    buttonText: string;
-    words: { text: string; imgPath: string }[];
-    heading1: string;
-    heading2: string;
-    heading3: string;
+  introText: string;
+  buttonText: string;
+  words: { text: string; imgPath: string }[];
+  heading1: string;
+  heading2: string;
+  heading3: string;
 }
 
 export interface AnimatedCounterContent extends Content {
-    counterItems: {value: number, suffix: string, label: string}[]
+  counterItems: { value: number; suffix: string; label: string }[];
 }
 
 export interface ShowcaseContent extends Content {
-    main: { title: string; description: string; image: string; };
-    others: { title: string; image: string; bg: string; }[];
+  main: { title: string; description: string; image: string };
+  others: { title: string; image: string; bg: string }[];
 }
 
 export interface HomepageContent extends Content {
-  navbar:NavBarContent,
-  hero:HeroContent,
-  animatedCounter: AnimatedCounterContent,
-  showcase: ShowcaseContent
+  navbar: NavBarContent;
+  hero: HeroContent;
+  animatedCounter: AnimatedCounterContent;
+  showcase: ShowcaseContent;
 }
 
 const homepage: HomepageContent = {
   navbar: {
     navLinks: [
-        { name: 'Work', link: '#work' },
-        { name: 'Experience', link: '#experience' },
-        { name: 'Skills', link: '#skills' },
-        { name: 'Testimonials', link: '#testimonials' }
+      { name: "Work", link: "#work" },
+      { name: "Experience", link: "#experience" },
+      { name: "Skills", link: "#skills" },
+      { name: "Testimonials", link: "#testimonials" },
     ],
     logoText: "Jaywant",
-    contactButtonText: "Contact Me"},
+    contactButtonText: "Contact Me",
+  },
 
   hero: {
-    introText: "Hi, I'm Jaywant, a developer based in India with a passion for code.",
+    introText:
+      "Hi, I'm Jaywant, a developer based in India with a passion for code.",
     buttonText: "See my Work",
     words: [
-        {text: 'Ideas', imgPath: '/images/ideas.svg'},
-        {text: 'Concepts', imgPath: '/images/concepts.svg'},
-        {text: 'Designs', imgPath: '/images/designs.svg'},
-        {text: 'Code', imgPath: '/images/code.svg'},
+      { text: "Ideas", imgPath: "/images/ideas.svg" },
+      { text: "Concepts", imgPath: "/images/concepts.svg" },
+      { text: "Designs", imgPath: "/images/designs.svg" },
+      { text: "Code", imgPath: "/images/code.svg" },
     ],
     heading1: "Shaping",
     heading2: "into Real Projects",
-    heading3: "that Deliver Results",},
+    heading3: "that Deliver Results",
+  },
 
   animatedCounter: {
     counterItems: [
-        {value: 10, suffix: "+", label: "Years of Experience"},
-        {value: 100, suffix: "+", label: "Satisfied Clients"},
-        {value: 108, suffix: "+", label: "Completed Projects"},
-        {value: 90, suffix: "%", label: "Client Retention Rate"},
-    ]
+      { value: 10, suffix: "+", label: "Years of Experience" },
+      { value: 100, suffix: "+", label: "Satisfied Clients" },
+      { value: 108, suffix: "+", label: "Completed Projects" },
+      { value: 90, suffix: "%", label: "Client Retention Rate" },
+    ],
   },
 
   showcase: {
     main: {
-    title: "On-Demand Rides Made Simple with Ryde",
-    description:
-      "An app built with React Native, Redux, Node.js, Express, and MongoDB that connects riders with drivers for convenient transportation.",
-    image: "/images/project1.png",
+      title: "On-Demand Rides Made Simple with Ryde",
+      description:
+        "An app built with React Native, Redux, Node.js, Express, and MongoDB that connects riders with drivers for convenient transportation.",
+      image: "/images/project1.png",
+    },
+    others: [
+      {
+        title: "Library Management Platform",
+        image: "/images/project2.png",
+        bg: "#ffefdb",
+      },
+      {
+        title: "YC Directory - A Startup Showcase App",
+        image: "/images/project3.png",
+        bg: "#ff7edb",
+      },
+    ],
   },
-  others: [
-    {
-      title: "Library Management Platform",
-      image: "/images/project2.png",
-      bg: "#ffefdb",
-    },
-    {
-      title: "YC Directory - A Startup Showcase App",
-      image: "/images/project3.png",
-      bg: "#ff7edb",
-    },
-  ],
-  }
 };
 
 export default homepage;

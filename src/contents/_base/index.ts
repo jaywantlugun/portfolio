@@ -3,8 +3,8 @@ import homepage from "./homepage";
 import notfoundpage from "./notfoundpage";
 
 const content: AppContent = {
-    homepage,
-    notfoundpage
-}
+  homepage,
+  notfoundpage,
+};
 
 export default content;

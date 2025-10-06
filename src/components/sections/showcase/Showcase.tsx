@@ -9,8 +9,7 @@ import { useContent } from "../../../hooks/useContent";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Showcase: React.FC = () => {
-
-  const {showcase} = useContent<HomepageContent>(); 
+  const { showcase } = useContent<HomepageContent>();
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const projectRefs = useRef<HTMLDivElement[]>([]);
@@ -32,7 +31,7 @@ export const Showcase: React.FC = () => {
               trigger: project,
               start: "top bottom-=100",
             },
-          }
+          },
         );
       });
 
@@ -40,7 +39,7 @@ export const Showcase: React.FC = () => {
       gsap.fromTo(
         sectionRef.current,
         { opacity: 0 },
-        { opacity: 1, duration: 1.5, ease: "power2.inOut" }
+        { opacity: 1, duration: 1.5, ease: "power2.inOut" },
       );
     }, sectionRef);
 
@@ -54,15 +53,17 @@ export const Showcase: React.FC = () => {
         <div
           className="project-main"
           ref={(el) => {
-                if (el) projectRefs.current[0] = el;
-                }}
+            if (el) projectRefs.current[0] = el;
+          }}
         >
           <div className="image-wrapper">
             <img src={showcase?.main.image} alt={showcase?.main.title} />
           </div>
           <div className="text-content">
             <h2>{showcase?.main.title}</h2>
-            <p className="text-white-50 md:text-xl">{showcase?.main.description}</p>
+            <p className="text-white-50 md:text-xl">
+              {showcase?.main.description}
+            </p>
           </div>
         </div>
 
@@ -74,9 +75,12 @@ export const Showcase: React.FC = () => {
               className="project-card"
               ref={(el) => {
                 if (el) projectRefs.current[i + 1] = el;
-                }}
+              }}
             >
-              <div className="image-wrapper" style={{ backgroundColor: proj.bg }}>
+              <div
+                className="image-wrapper"
+                style={{ backgroundColor: proj.bg }}
+              >
                 <img src={proj.image} alt={proj.title} />
               </div>
               <h2>{proj.title}</h2>

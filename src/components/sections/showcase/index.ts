@@ -1,1 +1,1 @@
-export {Showcase as default} from "./Showcase";
+export { Showcase as default } from "./Showcase";

@@ -1,1 +1,1 @@
-export {AnimatedCounter as default} from './AnimatedCounter';
+export { AnimatedCounter as default } from "./AnimatedCounter";

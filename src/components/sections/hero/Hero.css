@@ -18,9 +18,9 @@
   }
 
   .hero-badge {
-    @apply  py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
+    @apply py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
   }
-/* bg-black-200 */
+  /* bg-black-200 */
 
   .hero-3d-layout {
     @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:top-10 top-50 xl:-right-20 right-0;
@@ -41,12 +41,28 @@
 }
 
 @keyframes wordSlider {
-  0% { transform: translateY(0.5%); }
-  12.5% { transform: translateY(-12.5%); }
-  25% { transform: translateY(-25%); }
-  37.5% { transform: translateY(-37.5%); }
-  50% { transform: translateY(-50%); }
-  62.5% { transform: translateY(-62.5%); }
-  75% { transform: translateY(-75%); }
-  87.5% { transform: translateY(-87.5%); }
+  0% {
+    transform: translateY(0.5%);
+  }
+  12.5% {
+    transform: translateY(-12.5%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  37.5% {
+    transform: translateY(-37.5%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  62.5% {
+    transform: translateY(-62.5%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
+  87.5% {
+    transform: translateY(-87.5%);
+  }
 }

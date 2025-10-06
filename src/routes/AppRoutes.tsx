@@ -12,10 +12,10 @@ export default function AppRoutes() {
 
   return (
     <BrowserRouter>
-    <ContentLoader language={language} contentKey={"homepage"}>
-      <NavBar />
-    </ContentLoader>
-      <Suspense fallback={<LoadingPage/>}>
+      <ContentLoader language={language} contentKey={"homepage"}>
+        <NavBar />
+      </ContentLoader>
+      <Suspense fallback={<LoadingPage />}>
         <Routes>
           {routes.map(({ path, element: Element, contentKey }) => {
             const elementWithContent = contentKey ? (
@@ -26,7 +26,9 @@ export default function AppRoutes() {
               <Element />
             );
 
-            return <Route key={path} path={path} element={elementWithContent} />;
+            return (
+              <Route key={path} path={path} element={elementWithContent} />
+            );
           })}
         </Routes>
       </Suspense>
@@ -47,7 +49,7 @@ function ContentLoader({ language, contentKey, children }: any) {
     };
   }, [language, contentKey]);
 
-  if (!content) return null; 
+  if (!content) return null;
 
   return <ContentProvider value={content}>{children}</ContentProvider>;
 }
