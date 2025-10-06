@@ -65,7 +65,7 @@ export function Hero() {
 
         {/* RIGHT CONTENT (3D Model Placeholder) */}
         <figure ref={modelRef}>
-          <div className="border border-white overflow-hidden hero-3d-layout">
+          <div className="overflow-hidden hero-3d-layout">
             <Suspense fallback={null}>
               <Spline scene="/spline/scene.splinecode" />
             </Suspense>
