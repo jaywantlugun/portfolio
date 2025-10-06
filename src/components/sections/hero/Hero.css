@@ -66,3 +66,10 @@
     transform: translateY(-87.5%);
   }
 }
+
+/* Disable 3D touch interaction on mobile */
+@media (max-width: 768px) {
+  .hero-3d-layout canvas {
+    pointer-events: none; /* disables touch on mobile */
+  }
+}
